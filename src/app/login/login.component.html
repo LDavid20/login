@@ -1,0 +1,66 @@
+
+
+<div *ngIf="afAuth.user | async as user; else showLogin">
+
+
+		<div class="jumbotron text-center">
+				<h1>Hello {{ user.displayName }}!</h1>
+				<p>Gracias por iniciar sección</p>
+			  </div>
+			  
+			  <div class="container">
+					<div class="text-center text-info">
+										
+							<button type="button" (click)="logout()" class="btn btn-info btn-md" >Logout</button>
+						</div>
+						<br>
+						<br>
+			  </div>
+    <!-- <h1>Hello {{ user.displayName }}!</h1> -->
+    <!-- <button (click)="logout()">Logout</button> -->
+	<table class="table table-dark">
+			<thead>
+			  <tr>
+				<th scope="col">Nombre</th>
+			  </tr>
+			</thead>
+			<tbody>
+
+			  <tr  *ngFor="let sorteo of sorteos | async">
+				<th scope="row">          {{ sorteo.nombre }}</th>
+
+			  </tr>
+			</tbody>
+		  </table> 	
+    <!-- <ul>
+        <li *ngFor="let sorteo of sorteos | async">
+          {{ sorteo.nombre }}
+        </li>
+    </ul> -->
+</div>
+<ng-template #showLogin>
+
+		<div id="login">
+				<h3 class="text-center text-white pt-5">Login form</h3>
+				<div class="container">
+					<div id="login-row" class="row justify-content-center align-items-center">
+						<div id="login-column" class="col-md-6">
+							<div id="login-box" class="col-md-12">
+								<form id="login-form" class="form" action="" method="post">
+									<h3 class="text-center text-info">Please login</h3>
+								<br><br>
+									<div class="text-center text-info">
+										
+										<button type="button" (click)="login()" class="btn btn-info btn-md" >Login with Google</button>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    <!-- <p>Please login.</p> -->
+    <!-- <button (click)="login()" class="btn btn-info btn-md" >Login with Google</button> -->
+</ng-template>
